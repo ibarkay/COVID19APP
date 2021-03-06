@@ -4,4 +4,4 @@ covid 19 - webapp with charts (multi API's)
 
 https://c0vid194pp.netlify.app/
 
-![alt text]('screenshots\Screenshot 2021-03-06 195545.png')
+![Screenshot]('screenshots\Screenshot 2021-03-06 195545.png')
