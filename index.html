@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./wave.css" />
+		<link rel="stylesheet" href="./style.css" />
+		<title>Test</title>
+	</head>
+	<body>
+		<div class="warper">
+			<div class="content">
+				<!-- <h1>🏊</h1> -->
+				<div class="main-container">
+					<h1>🏴‍☠️ COVID - 19</h1>
+
+					<div class="chart-container">
+						<canvas id="myChart"></canvas>
+					</div>
+					<div class="country-container">
+						<h1 class="countreyname"></h1>
+						<img
+							class="flag"
+							src="https://www.countryflags.io/be/flat/64.png"
+						/>
+						<div class="boxs">
+							<div class="box" id="cases"></div>
+							<div class="box" id="new-cases"></div>
+							<div class="box" id="deaths"></div>
+							<div class="box" id="new-deaths"></div>
+							<div class="box" id="recovered"></div>
+							<div class="box" id="critical"></div>
+						</div>
+					</div>
+					<div class="parameters-div">
+						<button class="deaths">deaths</button>
+						<button class="recovered">recovered</button>
+						<button class="critical">critical</button>
+						<button class="confirmed">confirmed</button>
+					</div>
+					<div class="continent-div">
+						<button class="Africa">Africa</button>
+						<button class="Americas">Americas</button>
+						<button class="Asia">Asia</button>
+						<button class="Europe">Europe</button>
+						<button class="Oceania">Oceania</button>
+					</div>
+				</div>
+			</div>
+			<div class="waveWrapper waveAnimation">
+				<div class="waveWrapperInner bgTop">
+					<div
+						class="wave waveTop"
+						style="
+							background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png');
+						"
+					></div>
+				</div>
+				<div class="waveWrapperInner bgMiddle">
+					<div
+						class="wave waveMiddle"
+						style="
+							background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png');
+						"
+					></div>
+				</div>
+				<div class="waveWrapperInner bgBottom">
+					<div
+						class="wave waveBottom"
+						style="
+							background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png');
+						"
+					></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>
