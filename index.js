@@ -9,8 +9,8 @@ console.log(
 /* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-const-assign */
-// *GLOBALS
 
+// *GLOBALS & selectors
 const API = 'https://corona-api.com/countries';
 const countriesAPI = 'https://restcountries.herokuapp.com/api/v1';
 const proxy = 'https://api.codetabs.com/v1/proxy?quest=';
@@ -60,7 +60,7 @@ const btnList = [
 ];
 const btnListParams = [deathsBtn, recoveredBtn, criticalBtn, confirmedBtn];
 
-// !Fetch all data
+//* fetch countries by continent
 async function makeWorld() {
   const resp = await fetch(`${proxy}${countriesAPI}`);
   const data = await resp.json();
@@ -75,7 +75,7 @@ async function makeWorld() {
   }
 }
 
-//*
+//* create lists for drawing
 function dreawFromList(continent, params) {
   contCuntery.style = 'display : none;';
   container2.style = 'display : in-line;';
@@ -90,6 +90,7 @@ function dreawFromList(continent, params) {
   }
 }
 
+// ! fetch all data to an object (local)
 async function fetchiAll() {
   const resp = await fetch(`${API}`);
   const data = await resp.json();
@@ -118,9 +119,13 @@ async function fetchiAll() {
     countries.push(cObj);
   }
 }
+// * find Specific country
+const findByCountry = (country) => {
+  const ret = countries.find((x) => x.name === `${country}`);
+  return ret;
+};
 
 // *SAFE RUN HERE
-//* run it safe...
 async function safe() {
   await fetchiAll();
   await makeWorld();
@@ -157,24 +162,19 @@ async function safe() {
               // Edit here for the yAxe
               beginAtZero: true,
               fontColor: '#fff',
-
             },
           }],
           xAxes: [{
             ticks: {
               // Edit here for the xAxe
               fontColor: '#fff',
-
             },
           }],
         },
-
       },
     });
   }
-  // ?safe calls
-
-  // *Continents ev btns
+  // *Continents EV btns
   for (let i = 0; i < btnList.length; i++) {
     // ev on continents
     btnList[i].addEventListener('click', function clickedOnContinent() {
@@ -205,7 +205,7 @@ async function safe() {
       }
     });
   }
-  // ev on params
+  //* EV on params
   for (let i = 0; i < btnListParams.length; i++) {
     btnListParams[i].addEventListener('click', function clickedParam() {
       contCuntery.style = 'display : none;';
@@ -217,10 +217,5 @@ async function safe() {
   }
 }
 
-// * functions
-const findByCountry = (country) => {
-  const ret = countries.find((x) => x.name === `${country}`);
-  return ret;
-};
 safe();
 // ! DONT CALL STUFF AFTER SAFE()
